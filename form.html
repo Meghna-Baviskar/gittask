@@ -8,12 +8,23 @@
 </head>
 <body>
     <form name ="myform" onsubmit="return validation()">
-        Name: <input type="text" name="user_name" id="name1">
-        <input type="submit" value="">
+        Username: <input type="text" name="user_name" id="name1">
+        <input type="submit" value="SUBMIT">
     <!-- <button type="submit" style="height:40px; width:65px">Submit</button> -->
     </form>
     <script>
-        var name document.form('myform')
+        var user_name= document.forms['myform']['user_name'];
+        var name1 = /^[A-Za-z]*$/;
+        function validation(){
+            if(user_name.value==""){
+                alert('userfilled cant be empty');
+                return false;
+            }
+            if(user_name.value.match(name1)){
+                alert('only alphabe characters');
+                return false;
+            }
+        }
     </script>
 </body>
 </html>
